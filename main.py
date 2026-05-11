@@ -16,6 +16,7 @@ game_is_running = True
 
 player = Player()
 
+#Listen for the "Up" keypress to move the turtle north
 screen.listen()
 screen.onkey(fun=player.move_turtle,key="Up")
 

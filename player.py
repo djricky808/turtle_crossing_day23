@@ -5,7 +5,7 @@ MOVE_DISTANCE = 10
 FINISH_LINE_Y = 280
 
 class Player(Turtle):
-    #Create the turtle player
+    #Create the turtle player that starts at the bottom of the screen
     def __init__(self):
         super().__init__()
         self.shape("turtle")
