@@ -1,7 +1,7 @@
 from turtle import Screen
 import time
 from car_manager import CarManager
-from player import Player
+from player import Player, FINISH_LINE_Y
 from scoreboard import Scoreboard
 
 screen = Screen()
@@ -18,7 +18,7 @@ root.call('wm','attributes','.','-topmost','1')
 game_is_running = True
 
 player = Player()
-car = CarManager()
+cars = []
 
 #Listen for the "Up" keypress to move the turtle north
 screen.listen()
@@ -27,7 +27,14 @@ screen.onkey(fun=player.move_turtle,key="Up")
 while game_is_running:
     i += 1
     time.sleep(0.1)
-    car.move_car()
+    if i == CAR_GENERATION_RATE:
+        car = CarManager()
+        cars.append(car)
+        i = 0
+    for car in cars:
+        car.move_car()
+    #Detect when the player has reached the top of the screen
+
     screen.update()
 
 screen.exitonclick()
