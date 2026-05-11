@@ -34,7 +34,8 @@ while game_is_running:
     for car in cars:
         car.move_car()
     #Detect when the player has reached the top of the screen
-
+    if player.ycor() >= FINISH_LINE_Y:
+        player.reset_position()
     screen.update()
 
 screen.exitonclick()
