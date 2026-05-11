@@ -8,10 +8,13 @@ class Player(Turtle):
     #Create the turtle player
     def __init__(self):
         super().__init__()
+        self.shape("turtle")
+        self.penup()
+        self.setheading(90)
         self.reset_position()
 
     def reset_position(self):
-        self.position = (0, -200)
+        self.setposition(STARTING_POSITION)
 
     def move_turtle(self):
-        self.position = (0, self.ycor()+ MOVE_DISTANCE)
+        self.setposition(0, self.ycor()+ MOVE_DISTANCE)
