@@ -14,6 +14,11 @@ root.call('wm','attributes','.','-topmost','1')
 
 game_is_running = True
 
+player = Player()
+
+screen.listen()
+screen.onkey(fun=player.move_turtle(),key="Up")
+
 while game_is_running:
     time.sleep(0.1)
     screen.update()
