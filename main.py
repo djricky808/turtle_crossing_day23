@@ -40,8 +40,17 @@ while game_is_running:
     if player.ycor() >= FINISH_LINE_Y:
         #Return the turtle to the string position
         player.reset_position()
-        # Increase the speed of the cars
+        #Increase the speed of the cars
         speed *= 0.9
+        #Increase the level
+        scoreboard.increase_level()
+
+    #Detect when the player hits the car resulting in a GAME OVER
+    for car in cars:
+        if abs(player.xcor() - car.xcor()) < 40 and abs(player.ycor() - car.ycor()) < 10:
+            game_is_running= False
+            scoreboard.game_over()
+
     screen.update()
 
 screen.exitonclick()
