@@ -20,6 +20,7 @@ game_is_running = True
 
 player = Player()
 cars = []
+scoreboard = Scoreboard()
 
 #Listen for the "Up" keypress to move the turtle north
 screen.listen()
