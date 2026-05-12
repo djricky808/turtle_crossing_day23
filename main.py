@@ -11,6 +11,7 @@ screen.title("Turtle Crossing")
 
 CAR_GENERATION_RATE = 6
 i = 0
+speed = 0.1
 
 root = screen.getcanvas().winfo_toplevel()
 root.call('wm','attributes','.','-topmost','1')
@@ -26,7 +27,8 @@ screen.onkey(fun=player.move_turtle,key="Up")
 
 while game_is_running:
     i += 1
-    time.sleep(0.1)
+    time.sleep(speed)
+    # Generate a new car only every time 6th time the game loop runs
     if i == CAR_GENERATION_RATE:
         car = CarManager()
         cars.append(car)
@@ -35,7 +37,10 @@ while game_is_running:
         car.move_car()
     #Detect when the player has reached the top of the screen
     if player.ycor() >= FINISH_LINE_Y:
+        #Return the turtle to the string position
         player.reset_position()
+        # Increase the speed of the cars
+        speed *= 0.9
     screen.update()
 
 screen.exitonclick()
