@@ -20,3 +20,4 @@ class CarManager(Turtle):
     #Move the cars from the right edge to the left edge of the screen
     def move_car(self):
         self.setposition(self.xcor()-MOVE_INCREMENT,self.ycor())
+    #Generate a new car only every time 6th time the game loop runs
